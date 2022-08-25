@@ -274,9 +274,9 @@ FDFileNavigationSystemPresenter >> filesListAction [
 			selectedItem selectedItem isDirectory
 				ifTrue: [ self openFolder: selectedItem selectedItem ] ].
 	fileReferenceTable
-		whenSelectionChangedDo: [ :aFileReference | 
-			notebookPreviewer
-				page: (previewer previewOn: aFileReference selectedItem) ].
+		whenSelectionChangedDo: [ : selection | 
+			selection selectedItem ifNotNil: [ : aFileReference |
+				notebookPreviewer page: (previewer previewOn: aFileReference) ] ].
 	fileReferenceTable whenModelChangedDo: [ LastDirectoryVisit := currentDirectory ]
 ]
 
@@ -380,40 +380,6 @@ FDFileNavigationSystemPresenter >> initializePresenters [
 	self initializeFilesTable.
 	self initializeFiltersDropList.
 	LastDirectoryVisit ifNotNil: [ self updateWidgetWithFileReference: LastDirectoryVisit ].
-	self focusOrder
-		add: previousButton;
-		add: nextButton;
-		add: currentPathTextInputPresenter;
-		add: fileReferenceTable;
-		add: nameText;
-		add: filtersDropList
-]
-
-{ #category : #initialization }
-FDFileNavigationSystemPresenter >> initializeWidgets [
-	currentDirectory := Directory copy.
-	columns := Columns.
-	hiddenFilter := FDHidenFilter new.
-	previewer := Previewer.
-	
-	notebookPreviewer := self instantiate: FDNoteBookPreviewerPresenter.
-	fileReferenceTable := self newTable.
-	currentPathTextInputPresenter := self instantiate: FDWindowPathPresenter.
-	currentPathTextInputPresenter presenterUI: self.
-	nameLabel := self newLabel.
-	nameText := self newTextInput.
-	filtersDropList := self newDropList.
-	previousButton := self newButton.
-	nextButton := self newButton.
-	readPointerHistoryParcour := DoubleLink value: currentDirectory.
-	nextButton icon: (self iconNamed: #glamorousDiveRight).
-	previousButton icon: (self iconNamed: #back).
-	nameLabel label: 'Name:'.
-	nameText autoAccept: true.
-	self initializeCurrentPathTextInput.
-	self initializeFilesTable.
-	self initializeFiltersDropList.
-	self updateWidgetWithFileReference: LastDirectoryVisit.
 	self focusOrder
 		add: previousButton;
 		add: nextButton;

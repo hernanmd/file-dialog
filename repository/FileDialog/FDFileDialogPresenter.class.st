@@ -158,22 +158,22 @@ FDFileDialogPresenter class >> exampleBookmark [
 	| presenter |
 	presenter := FDOpenFileDialog new.
 	"this is a flat example"
-	presenter
-		bookmarks:
-			{FDBookmark home.
-			FDBookmark root.
-			FDBookmark tmp.
-			(FDBookmark
-				name: 'Image location'
-				location: FileLocator imageDirectory
-				icon: nil)}
-			"this is tree example" 	
-			"{(FDGroupBookMark
-				CreatWithname: 'exampleGroup'
-				WithContent:
+	presenter bookmarks: {
+		FDBookmark home.
+		FDBookmark root.
+		FDBookmark tmp.
+		(FDBookmark
+			name: 'Image location'
+			location: FileLocator imageDirectory
+			icon: nil) .
+	"this is tree example" 	
+		(FDGroupBookMark
+				name: 'exampleGroup'
+				collection:
 					{FDBookmark image.
 					FDBookmark home}
-				withIconName: 'group')}"
+				iconName: 'group') };
+		openDialog
 ]
 
 { #category : #example }
@@ -188,12 +188,12 @@ FDFileDialogPresenter class >> examplePreviewer [
 { #category : #example }
 FDFileDialogPresenter class >> exampleSaveDialog [
 	<example>
-		^ FDSaveFileDialog new openDialogWithSpec 
+		^ FDSaveFileDialog new openDialog 
 ]
 
 { #category : #example }
 FDFileDialogPresenter class >> exampleSaveFileDialog [
-	^ FDSaveFileDialog new openDialogWithSpec
+	^ FDSaveFileDialog new openDialog
 ]
 
 { #category : #example }
