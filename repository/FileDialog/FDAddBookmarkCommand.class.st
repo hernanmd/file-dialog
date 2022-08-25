@@ -31,6 +31,6 @@ FDAddBookmarkCommand >> execute [
 FDAddBookmarkCommand >> initialize [
 	super initialize.
 	self
-		basicName: 'add bookmark';
-		basicDescription: 'add the selected file to the bookmarks'
+		name: 'add bookmark';
+		description: 'add the selected file to the bookmarks'
 ]

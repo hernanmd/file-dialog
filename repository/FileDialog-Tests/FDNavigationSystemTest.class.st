@@ -143,7 +143,7 @@ FDNavigationSystemTest >> testWhenFilesListSelectionChangedAndIsAPNGShouldprevie
 				selectIndex:
 					((dialog fileReferenceTable items collect: #basename)
 						indexOf: 'patate.png') ]
-		raise: Error.
+		raise: UnrecognizedImageFormatError.
 	self
 		assert: dialog fileReferenceTable selection selectedItem basename
 		equals: 'patate.png'
@@ -151,8 +151,9 @@ FDNavigationSystemTest >> testWhenFilesListSelectionChangedAndIsAPNGShouldprevie
 
 { #category : #tests }
 FDNavigationSystemTest >> testWhenOpenADirectoryShouldDisplayHisChildrenFilterByCurrentFilter [
+
 	dialog filtersDropList
-		selectedIndex:
+		selectIndex:
 			((dialog filtersDropList listItems collect: #name)
 				indexOf: FDDotPNGFilter new name).
 	self fileListAllMustBeFilterByPNGFIlter.
