@@ -18,6 +18,13 @@ FDOpenFileDialog >> initialTitle [
 ]
 
 { #category : #initialization }
+FDOpenFileDialog >> initializePresenters [
+
+	super initializePresenters.
+	fileNavigationSystem nameText disable
+]
+
+{ #category : #initialization }
 FDOpenFileDialog >> initializeWidgets [
 	super initializeWidgets.
 	fileNavigationSystem nameText disable

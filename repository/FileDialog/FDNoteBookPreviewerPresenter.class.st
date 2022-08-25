@@ -14,6 +14,14 @@ Class {
 	#category : #'FileDialog-UI'
 }
 
+{ #category : #layout }
+FDNoteBookPreviewerPresenter class >> defaultLayout [
+
+	^ SpBoxLayout newHorizontal	 
+		add: #notebook;
+		yourself
+]
+
 { #category : #specs }
 FDNoteBookPreviewerPresenter class >> defaultSpec [
 
@@ -126,10 +134,11 @@ FDNoteBookPreviewerPresenter >> page [
 
 { #category : #adding }
 FDNoteBookPreviewerPresenter >> page: aPresenter [
+
 	page := aPresenter.
 	notebook removePageAt: 1.
 	notebook addPage: self initializePage;
-	selectedPageIndex: 1.
+	selectPageIndex: 1.
 ]
 
 { #category : #initialization }

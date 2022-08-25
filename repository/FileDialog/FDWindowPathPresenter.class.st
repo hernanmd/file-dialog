@@ -32,6 +32,14 @@ Class {
 	#category : #'FileDialog-UI'
 }
 
+{ #category : #layout }
+FDWindowPathPresenter class >> defaultLayout [
+	^ SpBoxLayout newHorizontal
+		add: #pathButtons;
+		add: #edditButton withConstraints: [:contraint |contraint width: 30];
+		yourself
+]
+
 { #category : #specs }
 FDWindowPathPresenter class >> defaultSpec [
 	^ SpBoxLayout newHorizontal
@@ -79,7 +87,7 @@ FDWindowPathPresenter >> currentDirectory: aFileReference [
 	currentDirectory fullPath withParents
 		do: [ :eachAbsolutePath | pathButtons add: (self creatButtonWith: eachAbsolutePath) ].
 	self needRebuild: false.
-	self buildWithSpec
+	self build
 ]
 
 { #category : #accessing }
@@ -99,9 +107,9 @@ FDWindowPathPresenter >> initializeWidgets [
 		icon: (self iconNamed: #edit);
 		action: [ self needRebuild: false.
 			self
-				buildWithSpecLayout:
+				buildWithLayout:
 					(isTextInput
-						ifTrue: [ self class defaultSpec ]
+						ifTrue: [ self class defaultLayout ]
 						ifFalse: [ self class otherlayout ]).
 			isTextInput := isTextInput not ]
 ]

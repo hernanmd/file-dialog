@@ -117,6 +117,21 @@ FDFileDialogPresenter class >> defaultBookmarks [
 		iconName: '')} asOrderedCollection
 ]
 
+{ #category : #layout }
+FDFileDialogPresenter class >> defaultLayout [
+	^ SpBoxLayout newVertical
+		add:
+			(SpPanedLayout newHorizontal
+				positionOfSlider: 200;
+				add: #bookmarksTreeTable;
+				add:
+					(SpBoxLayout newVertical
+						add: #fileNavigationSystem;
+						yourself);
+				yourself);
+		yourself
+]
+
 { #category : #defaultClassVariable }
 FDFileDialogPresenter class >> defaultOkActionBlock [
 	^ [ :fileReference | self inform: 'you select the file' , fileReference basename ]
@@ -166,7 +181,7 @@ FDFileDialogPresenter class >> examplePreviewer [
 	| presenter |
 	presenter := FDOpenFileDialog new.
 	presenter previewer: FDInspectPreviewer new.
-	presenter openDialogWithSpec.
+	presenter openDialog.
 	^ presenter
 ]
 
@@ -211,7 +226,7 @@ FDFileDialogPresenter class >> fullExample [
 	
 	presenter columns:  { FDCreationDateReferenceColumn }. 
 	
-	presenter openDialogWithSpec.
+	presenter openDialog.
 	presenter inspect.
 	^ presenter
 ]
