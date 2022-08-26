@@ -24,6 +24,13 @@ FDNavigationSystemTest >> setUp [
 	dialog defaultFolder: root
 ]
 
+{ #category : #running }
+FDNavigationSystemTest >> tearDown [ 
+
+	(root := (FileLocator imageDirectory / 'fd-test') asFileReference) ensureDeleteAll.
+	super tearDown.
+]
+
 { #category : #tests }
 FDNavigationSystemTest >> testCustomizationWhenChangeCollectionOfPreviewerShouldBeSet [
 	| previewerUtil |
@@ -168,11 +175,11 @@ FDNavigationSystemTest >> testWhenOpenADirectoryShouldDisplayHisChildrenFilterBy
 
 { #category : #tests }
 FDNavigationSystemTest >> testWhenPathTextInputPresenterAcceptShouldChangeFileListWithTheGoodContent [
+
 	dialog currentPathTextInputPresenter entityText
-		text: dialog currentPathTextInputPresenter entityText text , '/dir/'.
-	dialog currentPathTextInputPresenter entityText accept.
+		acceptText: dialog currentPathTextInputPresenter entityText text.
 	self
-		assertCollection: (dialog fileReferenceTable items collect: #basename)
+		denyCollection: (dialog fileReferenceTable items collect: #basename)
 		hasSameElements: {'klm.png' . 'klm.jpg'}
 ]
 
