@@ -1,19 +1,16 @@
-# File Dialog 
-- Pay attention this project has been merged into https://github.com/pharo-spec/NewTools
-- The original version from Peter Uhnak is now available under https://github.com/ducasse/file-dialog
-
-We plan to have it here under spec1-file-dialog but no time.
-
-
 [![Build Status](https://travis-ci.org/pharo-contributions/file-dialog.svg?branch=master)](https://travis-ci.org/pharo-contributions/file-dialog) [![Coverage Status](https://coveralls.io/repos/github/pharo-contributions/file-dialog/badge.svg)](https://coveralls.io/github/pharo-contributions/file-dialog)
 
 A simple replacement for Pharo's native file/folder selection dialog.
-![](figures/file-dialog-3.png)
 
+## Screenshots
 
+![Select File To Open](https://user-images.githubusercontent.com/4825959/186803185-60c28364-3865-4471-820c-f2a45a3728e9.png)
 
+![Select File To Open 2](https://user-images.githubusercontent.com/4825959/186803188-07dd53d8-376a-4774-acc2-0c99dc9ea5b5.png)
 
+![Save As](https://user-images.githubusercontent.com/4825959/186803211-da1b19a4-ec13-4806-a68c-cd86d9a32db4.png)
 
+![Select File To Open3](https://user-images.githubusercontent.com/4825959/186803201-305fa0a5-01a6-4469-bd50-838e55be2cae.png)
 
 ## Features
 
@@ -27,12 +24,10 @@ A simple replacement for Pharo's native file/folder selection dialog.
 
 ## Installation
 
-(catalog soon)
-
-```st
+```smalltalk
 Metacello new
 	baseline: 'FileDialog';
-	repository: 'github://pharo-contributions/file-dialog/repository';
+	repository: 'github://hernanmd/file-dialog/repository';
 	load.
 ```
 
@@ -40,25 +35,15 @@ Metacello new
 
 If you feel brave, you can replace the native dialogs everywhere in the system by running
 
-```st
+```smalltalk
 FDMorphicUIManager new beDefault
 ```
 
 Of course you can switch back anytime you want.
 
-```st
+```smalltalk
 MorphicUIManager new beDefault
 ```
-
-## Howto
-
-If you chose using the extended UIManager, then you can use that
-
-```st
-UIManager default chooseFileMatching: #('*.ston')
-```
-
-You can also use the classes directly — there are just minor differences in the behavior, such as `DirectoryDialog` will not show files, etc.
 
 ### Classes
 
@@ -83,5 +68,47 @@ The user-facing API is in the `api-customization` protocol of `FDFileDialogPrese
 
 ## Example
 
+Open a file with previewer:
+```smalltalk
+FDOpenFileDialog new
+	previewer: FDInspectPreviewer new;
+	openDialog.
+```
 
+Save a file
+```smalltalk
+FDSaveFileDialog new openDialog 
+```
 
+Adding bookmarks
+```smalltalk
+FDOpenFileDialog new
+	bookmarks: {
+		FDBookmark home.
+		FDBookmark root.
+		FDBookmark tmp.
+		(FDBookmark
+			name: 'Image location'
+			location: FileLocator imageDirectory
+			icon: nil) .
+		(FDGroupBookMark
+				name: 'exampleGroup'
+				collection:
+					{FDBookmark image.
+					FDBookmark home}
+				iconName: 'group') };
+		openDialog
+```
+
+Multiple options
+```Smalltalk
+FDOpenFileDialog new	
+	previewer: FDContentPreviewer new;
+	"with this when you select a png file it will display it"
+	filtersCustomization: { FDJPGOrPNGFilter new };
+	"with you add filter and there always the 'no filter'"
+	defaultFolder: FileLocator home asFileReference;
+	"it's open the FileDialog on this file"
+	okActionBlock: [ :selectedFileReference | selectedFileReference inspect ];
+	openDialog
+```
