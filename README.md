@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/pharo-contributions/file-dialog.svg?branch=master)](https://travis-ci.org/pharo-contributions/file-dialog) [![Coverage Status](https://coveralls.io/repos/github/pharo-contributions/file-dialog/badge.svg)](https://coveralls.io/github/pharo-contributions/file-dialog)
+[![CIMatrix](https://github.com/hernanmd/file-dialog/actions/workflows/ci.yml/badge.svg)](https://github.com/hernanmd/file-dialog/actions/workflows/ci.yml)
 
 A simple replacement for Pharo's native file/folder selection dialog.
 
