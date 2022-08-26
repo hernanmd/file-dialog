@@ -6,7 +6,7 @@ a SpImagePresenter of PNG file
 Class {
 	#name : #FDPNGPreviewer,
 	#superclass : #FDAbstractPreviewer,
-	#category : #'FileDialog-previewerStrategie'
+	#category : #'FileDialog-Strategy-Preview'
 }
 
 { #category : #testing }

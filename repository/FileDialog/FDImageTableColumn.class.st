@@ -4,7 +4,7 @@ I'm use to creat SpImageTableColumn
 Class {
 	#name : #FDImageTableColumn,
 	#superclass : #FDAbstractFileReferenceColumn,
-	#category : #'FileDialog-FileTreeStrategie'
+	#category : #'FileDialog-Strategy-FileTree'
 }
 
 { #category : #testing }

@@ -5,7 +5,7 @@ I'm use to give you the basename of a fileReference
 Class {
 	#name : #FDbasenameFileReferenceColumn,
 	#superclass : #FDAbstractStringTableColumn,
-	#category : #'FileDialog-FileTreeStrategie'
+	#category : #'FileDialog-Strategy-FileTree'
 }
 
 { #category : #adding }

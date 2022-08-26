@@ -1,26 +1,15 @@
 "
-I'm an abstract 
+Abstract class. My subclasses have to define:
 
-my subclasses have to define:
-
-* columnTitle 
-	returning a String 
-
-* evaluateOn:aFileReference 
-	return something in function of it's superClass 
-	example 
-		in FDBasenameFileReferenceColumn my subclass is FDAbstractStringTableColumn 
-			so it will creat a SpStringTablePresenter so i have to return a String 
-				here I'm asking to the fileReference is basename	
-				
-* addContraintTo: aTableColumn
-	with this method you can add option like with 
-		see SpTableColumn and subclass for more information
+- columnTitle : returning a `String`
+- evaluateOn:aFileReference : Return something in function of it's superClass. Example:
+  - In `FDBasenameFileReferenceColumn` my subclass is `FDAbstractStringTableColumn` so it will create a `SpStringTablePresenter` so I have to return a String here I'm asking to the fileReference is basename	
+-  addContraintTo: aTableColumn : 	with this method you can add option like with see SpTableColumn and subclass for more information
 "
 Class {
 	#name : #FDAbstractFileReferenceColumn,
 	#superclass : #Object,
-	#category : #'FileDialog-FileTreeStrategie'
+	#category : #'FileDialog-Strategy-FileTree'
 }
 
 { #category : #adding }

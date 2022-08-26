@@ -8,7 +8,7 @@ Class {
 	#instVars : [
 		'collectionOfFDAbstractFilter'
 	],
-	#category : #'FileDialog-filterStrategie'
+	#category : #'FileDialog-Strategy-Filters'
 }
 
 { #category : #actions }

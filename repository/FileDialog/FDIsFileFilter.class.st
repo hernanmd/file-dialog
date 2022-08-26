@@ -4,7 +4,7 @@ I'm selecting file
 Class {
 	#name : #FDIsFileFilter,
 	#superclass : #FDAbstractSimpleFilter,
-	#category : #'FileDialog-filterStrategie'
+	#category : #'FileDialog-Strategy-Filters'
 }
 
 { #category : #accessing }

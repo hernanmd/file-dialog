@@ -5,7 +5,7 @@ I'm a previewer for JPG , jpeg file
 Class {
 	#name : #FDJPGPreviewer,
 	#superclass : #FDAbstractPreviewer,
-	#category : #'FileDialog-previewerStrategie'
+	#category : #'FileDialog-Strategy-Preview'
 }
 
 { #category : #testing }

@@ -4,7 +4,7 @@ i'm manage ContextMenu to creat Directory
 Class {
 	#name : #FDCreatDirectoryCommand,
 	#superclass : #CmCommand,
-	#category : #'FileDialog-Menu'
+	#category : #'FileDialog-Commands'
 }
 
 { #category : #hooks }

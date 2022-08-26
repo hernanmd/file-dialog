@@ -22,7 +22,7 @@ Class {
 	#classInstVars : [
 		'uniqueInstance'
 	],
-	#category : #'FileDialog-filterStrategie'
+	#category : #'FileDialog-Strategy-Filters'
 }
 
 { #category : #actions }

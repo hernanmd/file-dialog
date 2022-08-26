@@ -4,7 +4,7 @@ I'm a column use to display the creation date of a file
 Class {
 	#name : #FDCreationDateReferenceColumn,
 	#superclass : #FDAbstractStringTableColumn,
-	#category : #'FileDialog-FileTreeStrategie'
+	#category : #'FileDialog-Strategy-FileTree'
 }
 
 { #category : #adding }

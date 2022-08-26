@@ -4,7 +4,7 @@ I'm a inspect command use to inspect the selectedFile
 Class {
 	#name : #FDInspectCommand,
 	#superclass : #CmCommand,
-	#category : #'FileDialog-Menu'
+	#category : #'FileDialog-Commands'
 }
 
 { #category : #hooks }

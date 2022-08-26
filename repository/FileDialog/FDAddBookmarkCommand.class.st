@@ -4,7 +4,7 @@ I'm a command use to add bookmark
 Class {
 	#name : #FDAddBookmarkCommand,
 	#superclass : #CmCommand,
-	#category : #'FileDialog-Menu'
+	#category : #'FileDialog-Commands'
 }
 
 { #category : #hooks }

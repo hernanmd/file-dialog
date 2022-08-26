@@ -6,7 +6,7 @@ I'm a command use to remove bookmark
 Class {
 	#name : #FDRemoveBookmarkCommand,
 	#superclass : #CmCommand,
-	#category : #'FileDialog-Menu'
+	#category : #'FileDialog-Commands'
 }
 
 { #category : #hooks }

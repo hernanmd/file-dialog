@@ -4,7 +4,7 @@ I'm selecting all
 Class {
 	#name : #FDDefaultFilter,
 	#superclass : #FDAbstractSimpleFilter,
-	#category : #'FileDialog-filterStrategie'
+	#category : #'FileDialog-Strategy-Filters'
 }
 
 { #category : #applying }

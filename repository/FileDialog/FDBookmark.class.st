@@ -7,7 +7,7 @@ Class {
 	#instVars : [
 		'location'
 	],
-	#category : #'FileDialog-bookMark'
+	#category : #'FileDialog-Bookmark'
 }
 
 { #category : #'default bookmarks' }

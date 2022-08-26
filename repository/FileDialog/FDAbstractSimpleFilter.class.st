@@ -5,7 +5,7 @@ i define simple predicate
 Class {
 	#name : #FDAbstractSimpleFilter,
 	#superclass : #FDAbstractFilter,
-	#category : #'FileDialog-filterStrategie'
+	#category : #'FileDialog-Strategy-Filters'
 }
 
 { #category : #actions }

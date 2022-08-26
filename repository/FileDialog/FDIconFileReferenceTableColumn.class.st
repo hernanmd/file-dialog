@@ -5,7 +5,7 @@ I'm use to give you an Icon
 Class {
 	#name : #FDIconFileReferenceTableColumn,
 	#superclass : #FDImageTableColumn,
-	#category : #'FileDialog-FileTreeStrategie'
+	#category : #'FileDialog-Strategy-FileTree'
 }
 
 { #category : #adding }

@@ -4,7 +4,7 @@ I'm a null patern , the default previewer
 Class {
 	#name : #FDNullPreviewer,
 	#superclass : #FDAbstractPreviewer,
-	#category : #'FileDialog-previewerStrategie'
+	#category : #'FileDialog-Strategy-Preview'
 }
 
 { #category : #testing }
