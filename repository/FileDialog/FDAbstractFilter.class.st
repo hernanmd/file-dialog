@@ -50,6 +50,15 @@ FDAbstractFilter >> equals: aPredicate [
 ]
 
 { #category : #accessing }
+FDAbstractFilter >> match: aFileReference pattern: regexString [
+
+	aFileReference basename
+		regex: regexString
+		matchesDo: [ :item | ^ true ].
+	^ false
+]
+
+{ #category : #accessing }
 FDAbstractFilter >> name [
 	^ self subclassResponsibility 
 ]

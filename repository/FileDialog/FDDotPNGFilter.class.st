@@ -14,10 +14,8 @@ FDDotPNGFilter >> name [
 
 { #category : #accessing }
 FDDotPNGFilter >> predicate: aFileReference [
+
 	^ aFileReference isDirectory
 		or: [ aFileReference isFile
-				and: [ aFileReference basename
-						regex: '.*\.png'
-						matchesDo: [ :item | ^ true ].
-					^ false ] ]
+				and: [ self match: aFileReference pattern: '.*\.png' ] ]
 ]

@@ -14,7 +14,6 @@ FDEndWithJPGFilter >> name [
 
 { #category : #accessing }
 FDEndWithJPGFilter >> predicate: aFileReference [
-	^ aFileReference basename
-		regex: '.*\.jpg'
-		matchesDo: [ :item | ^ true ]
+
+	^ self match: aFileReference pattern: '.*\.jpg'
 ]

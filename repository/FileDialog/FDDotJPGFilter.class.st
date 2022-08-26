@@ -14,11 +14,7 @@ FDDotJPGFilter >> name [
 
 { #category : #accessing }
 FDDotJPGFilter >> predicate: aFileReference [
-	^ aFileReference isDirectory
-		or: [ aFileReference isFile
-				and: [ 
-					aFileReference basename
-						regex: '.*\.jpg'
-						matchesDo: [ :item | ^ true ].
-					^ false ] ]
+
+	^ aFileReference isDirectory or: [ 
+		  aFileReference isFile and: [ self match: aFileReference pattern: '.*\.jpg'] ]
 ]

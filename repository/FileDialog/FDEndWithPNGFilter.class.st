@@ -14,7 +14,7 @@ FDEndWithPNGFilter >> name [
 
 { #category : #accessing }
 FDEndWithPNGFilter >> predicate: aFileReference [
-	^ aFileReference basename
-		regex: '.*\.png'
-		matchesDo: [ :item | ^ true ]
+
+	^ self match: aFileReference pattern: '.*\.png'
+
 ]
