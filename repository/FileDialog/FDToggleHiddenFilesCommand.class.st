@@ -19,6 +19,6 @@ FDToggleHiddenFilesCommand >> execute [
 FDToggleHiddenFilesCommand >> initialize [
 	super initialize.
 	self
-		basicName: 'Toggle hidden files';
-		basicDescription: 'appear/unappear hidden files'
+		name: 'Toggle hidden files';
+		description: 'appear/unappear hidden files'
 ]

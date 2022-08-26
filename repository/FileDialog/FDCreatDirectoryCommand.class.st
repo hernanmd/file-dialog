@@ -18,6 +18,6 @@ FDCreatDirectoryCommand >> execute [
 FDCreatDirectoryCommand >> initialize [
 	super initialize.
 	self
-		basicName: 'Create a directory';
-		basicDescription: 'create a directory '
+		name: 'Create a directory';
+		description: 'create a directory '
 ]

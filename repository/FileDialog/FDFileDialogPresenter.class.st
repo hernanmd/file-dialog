@@ -192,11 +192,6 @@ FDFileDialogPresenter class >> exampleSaveDialog [
 ]
 
 { #category : #example }
-FDFileDialogPresenter class >> exampleSaveFileDialog [
-	^ FDSaveFileDialog new openDialog
-]
-
-{ #category : #example }
 FDFileDialogPresenter class >> fullExample [
 	<example>
 	| presenter |
