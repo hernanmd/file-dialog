@@ -4,23 +4,35 @@ A simple replacement for Pharo's native file/folder selection dialog.
 
 ## Screenshots
 
+Basic file preview
+
 ![Select File To Open](https://user-images.githubusercontent.com/4825959/186803185-60c28364-3865-4471-820c-f2a45a3728e9.png)
+
+Bookmark groups
 
 ![Select File To Open 2](https://user-images.githubusercontent.com/4825959/186803188-07dd53d8-376a-4774-acc2-0c99dc9ea5b5.png)
 
+Save As
+
 ![Save As](https://user-images.githubusercontent.com/4825959/186803211-da1b19a4-ec13-4806-a68c-cd86d9a32db4.png)
+
+Filters
 
 ![Select File To Open3](https://user-images.githubusercontent.com/4825959/186803201-305fa0a5-01a6-4469-bd50-838e55be2cae.png)
 
+Add bookmarks
+
+![Screen Shot 2022-08-26 at 04 30 25](https://user-images.githubusercontent.com/4825959/186803914-a4ace3e4-aaae-4d2c-a17d-e29ef50a2527.png)
+
 ## Features
 
-* contextMenu to add/remove bookmark
-* toggle hidden files (right-click on file listing)
-* preset file name
-* filtering files by subclass FDAbstractSelect
+* ContextMenu to add/remove bookmark
+* Toggle hidden files (right-click on file listing)
+* Preset file name
+* Filtering files by subclass FDAbstractSelect
 * TextInputField like window path text input
-* preview system
-* you can change the column of the tablePresente
+* Preview system
+* Change the column of the table presenter
 
 ## Installation
 
@@ -33,7 +45,7 @@ Metacello new
 
 ### Replacing native dialogs
 
-If you feel brave, you can replace the native dialogs everywhere in the system by running
+If you feel brave, you can replace the native dialogs everywhere in the system by running:
 
 ```smalltalk
 FDMorphicUIManager new beDefault
