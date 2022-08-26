@@ -62,11 +62,7 @@ The user-facing API is in the `api-customization` protocol of `FDFileDialogPrese
 * `previewer: aPreviewer` _ a son of FDAbstractPreviewer that returning a Spec widget 
 * `columns: aCollectionOfColumns` _ you have to give a collection of subclass of FDAbstractFileReferenceColumn
 
-## Custom Icons
-
-
-
-## Example
+## Examples
 
 Open a file with previewer:
 ```smalltalk
