@@ -319,6 +319,13 @@ FDFileDialogPresenter >> dialogTitle [
 ]
 
 { #category : #accessing }
+FDFileDialogPresenter >> dialogTitle: anObject [
+
+	dialogTitle := anObject.
+
+]
+
+{ #category : #accessing }
 FDFileDialogPresenter >> fileNavigationSystem [
 	^ fileNavigationSystem
 ]
