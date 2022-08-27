@@ -30,7 +30,7 @@ FDOpenDirectoryDialog class >> example [
 		openDialogWithSpec inspect
 ]
 
-{ #category : #api }
+{ #category : #'initialize-value' }
 FDOpenDirectoryDialog >> initialTitle [
 	^ 'Select Directory To Open'
 ]

@@ -291,7 +291,7 @@ FDFileNavigationSystemPresenter >> filtersCustomization: aCollectionOfFilter [
 				yourself) asSet asOrderedCollection.
 	filtersDropList
 		selectIndex:
-			((filtersDropList listItems collect: #name)
+			((filtersDropList listItems collect: [ : listItem | listItem asFDFilter name ])
 				indexOf: FDDefaultFilter new name)
 ]
 
@@ -339,7 +339,7 @@ FDFileNavigationSystemPresenter >> initializeFiltersDropList [
 	filterItems := filterItems asSet.
 	filtersDropList
 		items: filterItems asOrderedCollection;
-		display: [ :item | item name ];
+		display: [ :item | item asFDFilter name ];
 		selectIndex:
 			((filtersDropList listItems collect: #name)
 				indexOf: FDDefaultFilter new name)
@@ -488,11 +488,13 @@ FDFileNavigationSystemPresenter >> updateHistoryList [
 { #category : #utils }
 FDFileNavigationSystemPresenter >> updateTableContent [
 
+	| selectedFilter |
 	filtersDropList selectedItem ifNil: [ ^ self ].
 	currentDirectory ifNil: [ ^ self ].
+	selectedFilter := filtersDropList selectedItem asFDFilter.
 	fileReferenceTable
 		items: (hiddenFilter
-			applyOn: (filtersDropList selectedItem applyOn: currentDirectory children))
+			applyOn: (selectedFilter applyOn: currentDirectory children))
 ]
 
 { #category : #utils }

@@ -68,13 +68,12 @@ FDMorphicUIManager >> chooseFullFileName: title extensions: exts path: path prev
 
 { #category : #'ui requests' }
 FDMorphicUIManager >> chooseFullFileNameMatching: patterns label: title [
-	self
-		deprecated: 'now you have to give a filter see FileDialog-filterStrategie'.
+
 	^ FDOpenFileDialog new
-		title: (title ifNil: [ 'Choose File' translated ]);
-		"fileFilters: (patterns ifNil: [ #() ] ifNotNil: [ :e | e collect: [ :each | '*.' , each ] ]);
-		"
-			openDialogWithSpec
+		previewer: FDInspectPreviewer new;	
+		dialogTitle: 'Choose File' translated;
+		filtersCustomization: (patterns ifNil: [ #() ] ifNotNil: [ :e | e collect: #yourself ]);
+		openDialog
 ]
 
 { #category : #'ui requests' }

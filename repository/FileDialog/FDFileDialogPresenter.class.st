@@ -71,7 +71,8 @@ Class {
 		'okActionBlock',
 		'bookmarksTreeTable',
 		'bookmarks',
-		'fileNavigationSystem'
+		'fileNavigationSystem',
+		'dialogTitle'
 	],
 	#classVars : [
 		'Bookmarks',
@@ -276,15 +277,18 @@ FDFileDialogPresenter >> columns: aCollectionOfColumns [
 	fileNavigationSystem columns: aCollectionOfColumns 
 ]
 
-{ #category : #utility }
+{ #category : #utilities }
 FDFileDialogPresenter >> confirm [
+
 	self selectedEntry
 		ifNotNil: [ :entry | 
-			okActionBlock value: entry.
-			self delete ]
+			self window close.
+			okActionBlock value: entry ].
+
+	
 ]
 
-{ #category : #utility }
+{ #category : #utilities }
 FDFileDialogPresenter >> creatAnFDBookMark: aDirectory [
 	^ FDBookmark
 		name: aDirectory basename
@@ -297,7 +301,7 @@ FDFileDialogPresenter >> currentDirectory [
 	^ fileNavigationSystem currentDirectory 
 ]
 
-{ #category : #utility }
+{ #category : #utilities }
 FDFileDialogPresenter >> defaultFolder [
 	^ FileLocator imageDirectory asFileReference
 ]
@@ -305,6 +309,13 @@ FDFileDialogPresenter >> defaultFolder [
 { #category : #'api-customization' }
 FDFileDialogPresenter >> defaultFolder: aPath [
 	fileNavigationSystem defaultFolder: aPath
+]
+
+{ #category : #accessing }
+FDFileDialogPresenter >> dialogTitle [
+
+	^ dialogTitle 
+		ifNil: [ dialogTitle := self initialTitle ]
 ]
 
 { #category : #accessing }
@@ -322,7 +333,7 @@ FDFileDialogPresenter >> filtersCustomization: aCollection [
 	fileNavigationSystem filtersCustomization: aCollection
 ]
 
-{ #category : #utility }
+{ #category : #utilities }
 FDFileDialogPresenter >> iconFor: anEntry [
 	| ext |
 	anEntry isDirectory
@@ -364,9 +375,10 @@ FDFileDialogPresenter >> initializeBookmarksTreeTable [
 
 { #category : #initialization }
 FDFileDialogPresenter >> initializeDialogWindow: aDialogWindowPresenter [
+
 	super initializeDialogWindow: aDialogWindowPresenter.
 	aDialogWindowPresenter
-		title: self initialTitle;
+		title: self dialogTitle;
 		initialExtent: 900 @ 900;
 		okAction: [ self confirm ];
 		cancelAction: [ self delete ]
@@ -382,7 +394,7 @@ FDFileDialogPresenter >> initializeFilesList [
 				asMenuPresenter ]
 ]
 
-{ #category : #initialization }
+{ #category : #'initialization - deprecated' }
 FDFileDialogPresenter >> initializePresenter [
 	bookmarksTreeTable
 		whenSelectionChangedDo: [ :selection | 
@@ -427,7 +439,7 @@ FDFileDialogPresenter >> previewer: aPreviewer [
 	fileNavigationSystem previewer: aPreviewer
 ]
 
-{ #category : #utility }
+{ #category : #utilities }
 FDFileDialogPresenter >> selectFile: aFile [
 	fileNavigationSystem fileReferenceTable selection selectedItem = aFile
 		ifFalse: [ fileNavigationSystem fileReferenceTable
@@ -443,4 +455,10 @@ FDFileDialogPresenter >> selectedBookMark [
 { #category : #accessing }
 FDFileDialogPresenter >> selectedEntry [
 	^ self subclassResponsibility
+]
+
+{ #category : #accessing }
+FDFileDialogPresenter >> title [
+
+	^ self dialogTitle
 ]

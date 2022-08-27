@@ -44,6 +44,12 @@ FDAbstractFilter >> applyOn: aCollectionOfFileReference [
 	^ aCollectionOfFileReference select: [:eachFileReference | self predicate: eachFileReference   ]
 ]
 
+{ #category : #accessing }
+FDAbstractFilter >> asFDFilter [
+
+	^ self
+]
+
 { #category : #comparing }
 FDAbstractFilter >> equals: aPredicate [
 	^ self className = aPredicate className
