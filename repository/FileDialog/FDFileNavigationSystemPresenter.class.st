@@ -253,6 +253,12 @@ FDFileNavigationSystemPresenter >> currentPathTextInputPresenter [
 	^ currentPathTextInputPresenter
 ]
 
+{ #category : #private }
+FDFileNavigationSystemPresenter >> defaultFolder [
+
+	^ FileLocator imageDirectory asFileReference
+]
+
 { #category : #'api-customization' }
 FDFileNavigationSystemPresenter >> defaultFolder: aFileReference [
 	self updateWidgetWithFileReference: aFileReference.
@@ -499,7 +505,12 @@ FDFileNavigationSystemPresenter >> updateTableContent [
 
 { #category : #utils }
 FDFileNavigationSystemPresenter >> updateWidgetWithFileReference: aFileReference [
-	currentDirectory := aFileReference.
+
+	| newCurrentDir |
+	newCurrentDir := aFileReference exists
+		ifFalse: [ self defaultFolder ]
+		ifTrue: [ aFileReference ].
+	currentDirectory := newCurrentDir.
 	self updateTableContent.
 	currentPathTextInputPresenter currentDirectory: currentDirectory
 ]
