@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'windowPathUI'
 	],
-	#category : #'FileDialog-UI'
+	#category : #'FileDialog-Tests'
 }
 
 { #category : #running }
