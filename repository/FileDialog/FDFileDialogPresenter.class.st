@@ -174,7 +174,7 @@ FDFileDialogPresenter class >> exampleBookmark [
 					{FDBookmark image.
 					FDBookmark home}
 				iconName: 'group') };
-		openDialog
+		openBlockedDialog
 ]
 
 { #category : #example }
@@ -182,7 +182,7 @@ FDFileDialogPresenter class >> examplePreviewer [
 	| presenter |
 	presenter := FDOpenFileDialog new.
 	presenter previewer: FDInspectPreviewer new.
-	presenter openDialog.
+	presenter openBlockedDialog.
 	^ presenter
 ]
 
@@ -222,7 +222,7 @@ FDFileDialogPresenter class >> fullExample [
 	
 	presenter columns:  { FDCreationDateReferenceColumn }. 
 	
-	presenter openDialog.
+	presenter openBlockedDialog.
 	presenter inspect.
 	^ presenter
 ]

@@ -27,7 +27,7 @@ FDOpenDirectoryDialog class >> example [
 	<example>
 	^ (self new
 		okActionBlock: [ :selectedFileReference | selectedFileReference inspect ])
-		openDialogWithSpec inspect
+		openBlockedDialog inspect
 ]
 
 { #category : #'initialize-value' }

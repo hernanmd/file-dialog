@@ -16,7 +16,7 @@ Class {
 { #category : #examples }
 FDSaveFileDialog class >> example [ 	
 	<example>
-		^ self new openDialogWithSpec
+		^ self new openBlockedDialog
 ]
 
 { #category : #'as yet unclassified' }
@@ -29,12 +29,12 @@ FDSaveFileDialog class >> exampleExtension [
 FDSaveFileDialog class >> extension: aExtensionMatcher [
 	"example 
 		you want to save png File 
-			FDSaveFileDialog extension: '*.jpg'
+			FDSaveFileDialog extension: '*.png'
 	"
 
 	^ self new
 		extension: aExtensionMatcher;
-		openDialogWithSpec;
+		openBlockedDialog;
 		yourself
 ]
 
