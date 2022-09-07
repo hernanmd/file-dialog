@@ -382,13 +382,16 @@ FDFileDialogPresenter >> initializeBookmarksTreeTable [
 
 { #category : #initialization }
 FDFileDialogPresenter >> initializeDialogWindow: aDialogWindowPresenter [
+	"We answer nil on cancel so the user does not have to deal with Spec dialog presenter"
 
 	super initializeDialogWindow: aDialogWindowPresenter.
 	aDialogWindowPresenter
 		title: self dialogTitle;
 		initialExtent: 900 @ 900;
 		okAction: [ self confirm ];
-		cancelAction: [ self delete ]
+		cancelAction: [ 
+			self delete. 
+			^ nil ]
 ]
 
 { #category : #'initialize-widgets' }
@@ -401,20 +404,10 @@ FDFileDialogPresenter >> initializeFilesList [
 				asMenuPresenter ]
 ]
 
-{ #category : #'initialization - deprecated' }
-FDFileDialogPresenter >> initializePresenter [
-	bookmarksTreeTable
-		whenSelectionChangedDo: [ :selection | 
-			selection selectedItem
-				ifNotNil: [ :selectedItem | 
-					selectedItem isComposite
-						ifFalse: [ fileNavigationSystem openFolder: selectedItem location ] ] ]
-]
-
 { #category : #initialization }
-FDFileDialogPresenter >> initializeWidgets [
+FDFileDialogPresenter >> initializePresenters [
+
 	bookmarks := Bookmarks.
-	
 	bookmarksTreeTable := self newTreeTable.
 	fileNavigationSystem := self instantiate: FDFileNavigationSystemPresenter.
 
@@ -422,7 +415,14 @@ FDFileDialogPresenter >> initializeWidgets [
 	self initializeFilesList.
 	self focusOrder
 		add: bookmarksTreeTable;
-		add: fileNavigationSystem
+		add: fileNavigationSystem.
+
+	bookmarksTreeTable
+		whenSelectionChangedDo: [ :selection | 
+			selection selectedItem
+				ifNotNil: [ :selectedItem | 
+					selectedItem isComposite
+						ifFalse: [ fileNavigationSystem openFolder: selectedItem location ] ] ]
 ]
 
 { #category : #accessing }

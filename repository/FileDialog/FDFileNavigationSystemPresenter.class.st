@@ -352,7 +352,20 @@ FDFileNavigationSystemPresenter >> initializeFiltersDropList [
 ]
 
 { #category : #initialization }
-FDFileNavigationSystemPresenter >> initializePresenter [
+FDFileNavigationSystemPresenter >> initializeFocusOrders [
+
+	self focusOrder
+		add: previousButton;
+		add: nextButton;
+		add: currentPathTextInputPresenter;
+		add: fileReferenceTable;
+		add: nameText;
+		add: filtersDropList
+]
+
+{ #category : #initialization }
+FDFileNavigationSystemPresenter >> initializePresenterActions [
+
 	self filesListAction.
 	self filtersDropListAction.
 	self currentPathTextInputAction.
@@ -361,13 +374,8 @@ FDFileNavigationSystemPresenter >> initializePresenter [
 ]
 
 { #category : #initialization }
-FDFileNavigationSystemPresenter >> initializePresenters [
+FDFileNavigationSystemPresenter >> initializePresenterNavControls [
 
-	currentDirectory := Directory copy.
-	columns := Columns.
-	hiddenFilter := FDHidenFilter new.
-	previewer := Previewer.
-	
 	notebookPreviewer := self instantiate: FDNoteBookPreviewerPresenter.
 	fileReferenceTable := self newTable.
 	currentPathTextInputPresenter := self instantiate: FDWindowPathPresenter.
@@ -382,17 +390,25 @@ FDFileNavigationSystemPresenter >> initializePresenters [
 	previousButton icon: (self iconNamed: #back).
 	nameLabel label: 'Name:'.
 	nameText autoAccept: true.
+
+]
+
+{ #category : #initialization }
+FDFileNavigationSystemPresenter >> initializePresenters [
+
+	currentDirectory := Directory copy.
+	columns := Columns.
+	hiddenFilter := FDHidenFilter new.
+	previewer := Previewer.
+	
+	self initializePresenterNavControls.
 	self initializeCurrentPathTextInput.
 	self initializeFilesTable.
 	self initializeFiltersDropList.
 	LastDirectoryVisit ifNotNil: [ self updateWidgetWithFileReference: LastDirectoryVisit ].
-	self focusOrder
-		add: previousButton;
-		add: nextButton;
-		add: currentPathTextInputPresenter;
-		add: fileReferenceTable;
-		add: nameText;
-		add: filtersDropList
+
+	self initializePresenterActions.
+	self initializeFocusOrders.
 ]
 
 { #category : #accessing }

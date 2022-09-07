@@ -24,12 +24,6 @@ FDOpenFileDialog >> initializePresenters [
 	fileNavigationSystem nameText disable
 ]
 
-{ #category : #initialization }
-FDOpenFileDialog >> initializeWidgets [
-	super initializeWidgets.
-	fileNavigationSystem nameText disable
-]
-
 { #category : #accessing }
 FDOpenFileDialog >> selectedEntry [
 	^ fileNavigationSystem fileReferenceTable selection selectedItem

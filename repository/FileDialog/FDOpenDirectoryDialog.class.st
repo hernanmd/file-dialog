@@ -42,12 +42,6 @@ FDOpenDirectoryDialog >> initializePresenters [
 	fileNavigationSystem nameText disable
 ]
 
-{ #category : #initialization }
-FDOpenDirectoryDialog >> initializeWidgets [
-	super initializeWidgets.
-	fileNavigationSystem nameText disable
-]
-
 { #category : #actions }
 FDOpenDirectoryDialog >> nameChanged [
 	"we don't need to do anything for folder"

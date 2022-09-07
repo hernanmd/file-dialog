@@ -60,9 +60,11 @@ FDSaveFileDialog >> initialize [
 ]
 
 { #category : #initialization }
-FDSaveFileDialog >> initializePresenter [
+FDSaveFileDialog >> initializePresenters [
+
 	| ec |
-	super initializePresenter.
+
+	super initializePresenters.
 	(ec := EntryCompletion new)
 		dataSourceBlock: [ :text | fileNavigationSystem currentDirectory children collect: #basename ];
 		filterBlock: [ :opt :text |opt beginsWith: text ].
